@@ -1,7 +1,20 @@
-const TodoComplete = () => {
+import Todo from "./Todo";
+
+const TodoComplete = ({ tasks, onToggle, onDelete, onEdit }) => {
   return (
-    <div className="border w-[45%]">
-      <h2>Completed</h2>
+    <div className="w-full md:w-[45%]">
+      <h2 className="text-lg text-center font-bold text-shadow-blue-400 text-shadow-xs ">
+        Completed
+      </h2>
+      {tasks.map((task) => (
+        <Todo
+          key={task.id}
+          task={task}
+          onToggle={onToggle}
+          onDelete={onDelete}
+          onEdit={onEdit}
+        />
+      ))}
     </div>
   );
 };
